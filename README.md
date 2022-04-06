@@ -1,108 +1,289 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# The Listening Service
 
-Welcome USER_NAME,
+Project Description
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+**The live project is available on Heroku: [The Listening Service](https://the-listening-service.herokuapp.com)**
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![Image showing the project displaying responsively on different device types.](assets/readme-images/amiresponsive.png)
 
-## Gitpod Reminders
+## Table of Contents
+- [User Experience Design](#user-experience-design)
+  * [Strategy](#strategy)
+  * [Scope](#scope)
+    + [User Stories](#user-stories)
+  * [Structure](#structure)
+  * [Skeleton](#skeleton)
+	+ [Database Design](#database-design)
+    + [Sitemap](#sitemap)
+    + [Wireframes](#wireframes)
+  * [Surface](#surface)
+- [Features](#features)
+  * [Current Features](#current-features)
+  * [Future Features](#future-features)
+- [Technologies Used](#technologies-used)
+  * [Languages](#languages)
+  * [Libraries](#libraries)
+  * [Frameworks](#frameworks)
+  * [Other Services and Software](#other-services-and-software)
+- [Testing](#testing)
+- [Deployment Instructions](#deployment-instructions)
+- [Acknowledgements](#acknowledgements)
+  * [Content](#content)
+  * [Media](#media)
+  * [Thanks](#thanks)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## User Experience Design
 
-`python3 -m http.server`
 
-A blue button should appear to click: _Make Public_,
+### Strategy
 
-Another blue button should appear to click: _Open Browser_.
+*The Listening Service*'s aim is ...
+Value is to be obtained by:
+- ...
+- ...
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: _Make Public_,
+Details...
 
-Another blue button should appear to click: _Open Browser_.
+### Scope
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+The project will make use of ...
 
-To log into the Heroku toolbelt CLI:
+#### User Stories
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+| Scenario | Requirements  |
+|----------|---------------|
+| **As ...**, I want .... | There should be ... |
+| I want ... | The content ...|
+| I want ... | A way for the user to ...|
+| **As ...**, I want ... | The ability to ... |
+| I want ...  | The ...|
+| I want ... | To provide ...|
+| **As ...**, I want to be able to ... | ... |
+| I want to ... | A ...|
+| I want to ... | ...|
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Structure
 
-------
+The project will make use of ..
+Information will be presented across web pages and data collected using forms ..
 
-## Release History
+### Skeleton
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+...
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+#### Database Design
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+![Diagram showing the database design](assets/readme-images/database-diagram.png)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+...
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+The navigation menu will appear differently depending on if a user is logged in or not.
+| Menu Item | Not Logged In | Logged In |
+|----------|---------------|---------------|
+| Home | :heavy_check_mark: | :heavy_check_mark: |
+| ... | :heavy_check_mark: | :heavy_check_mark: |
+| ... | :heavy_check_mark: (redirects to Log In) | :heavy_check_mark: |
+| ... | :heavy_check_mark: (redirects to Log In) | :heavy_check_mark: |
+| Profile | :x: | :heavy_check_mark: |
+| Sign Up | :heavy_check_mark: | :x: |
+| Log In | :heavy_check_mark: | :x: |
+| Log Out | :x: | :heavy_check_mark: |
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+#### Sitemap
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+![Diagram showing the different webpages](assets/readme-images/sitemap.svg)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+#### Wireframes
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+Wireframes showing layout plans.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+![An image previewing some of the mobile wireframes made for the project](assets/wireframes/wireframes.png)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Surface
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+Choices for the visual style of the project are ...
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## Features
 
-------
+The project allows users the ability to ...
 
-## FAQ about the uptime script
+### Current Features
+These features have been implemented in the project.
 
-**Why have you added this script?**
+ - Register & Login Functionality
+	 * Certain areas of the website and menu items are not accessible to users unless they have created an account and logged in.
+	 * ...
+	 
+![...](assets/readme-images/....png)
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+ - ...
+	 * ...
+	 * ...
+	 
+![...](assets/readme-images/....png)
 
-**How will this affect me?**
+ - ...
+	 * ...
+	 * ...
+	 
+![...](assets/readme-images/....png)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+ - ...
+	 * ...
+	 * ...
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+![...](assets/readme-images/....png)
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+ - ...
+	 * ...
+	 * ...
+	 
+![...](assets/readme-images/....png)
 
-**So….?**
+ - ...
+	 * ...
+	 * ...
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+![...](assets/readme-images/....png)
 
-**Can I opt out?**
+ - ...
+	 * ...
+	 * ...
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
 
+### Future Features
+Possible features to be considered for future releases.
+ - ...
+	 * ...
+	 * ...
+
+ - ...
+	 * ...
+	 * ...
+
+ - ...
+	 * ...
+	 * ...
+ 
+ - ...
+	 * ...
+	 * ...
+
+ - ...
+	 * ...
+	 * ...
+
+
+## Technologies Used
+### Languages
+ - HTML 
+ - CSS
+ - JavaScript
+ - Python
+
+### Libraries
+ - [jQuery](https://jquery.com/)
+ - [Link](#)
+ 
+### Frameworks
+ - [Link](#)
+	 - ...
+ - [Link](#)
+	 - ...
+
+### Other Services and Software
+ - Git
+ 	 - Version control.
+ - GitHub
+ 	 - Cloud-based storage and deployment via GitHub Pages.
+ - GitPod
+ 	 - IDE.
+ - [StackEdit](https://stackedit.io)
+	 - Used to assist in the planning and creation of this README markdown file.
+ - [markdown-toc](https://ecotrust-canada.github.io/markdown-toc)
+	 - Used to generate table of contents in markdown for this README markdown file.
+ - [Moon Modeler](https://www.datensen.com/data-modeling/moon-modeler-for-databases.html)
+	 - For creating the database diagram.
+ - [Link](#)
+	 - ...
+ - [FontAwesome](https://fontawesome.com/)
+	 - For icons.
+ - [GoogleFonts](https://fonts.google.com/)
+	 - Fonts.
+ - [Heroku](https://heroku.com)
+	 - For deploying the live app.
+
+
+## Testing
+
+See separate [TESTING.md](TESTING.md)
+
+
+## Deployment Instructions
+
+Forking a Repository
+1. Navigate to GitHub Repository
+2. Use the **Fork** link (node tree icon) from the top right of the page just under the header.
+3. You now have a copy of the repository among your own.
+
+[Further Instruction](https://help.github.com/articles/fork-a-repo)
+
+Cloning a Repository
+1. Navigate to GitHub Repository
+2. Use the **Code** dropdown button from just above the repository on the right.
+3. Copy the relevant address or command to use as instructed with your chosen method.
+4. For example in Git Bash use the command `$ git clone https://github.com/`**github-username**`/`**repository-name**
+5. You now have a local copy of the Repository in the directory where you ran the command.
+
+[Further Instruction](https://help.github.com/articles/cloning-a-repository/)
+
+Requirements
+
+This app has dependencies listed in the requirements.txt included.
+This project was built in an environment using Python3, therefore it is likely you will need to use the same version.
+
+Install the dependencies all together using the requirements.txt by using the command `pip3 install -r requirements.txt` from the CLI of your IDE.
+
+This project uses environment variables not included in the repository. To set these locally create an `env.py` file and include the following:
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
+import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "YOUR_SECRET KEY - can be anything")
+os.environ.setdefault("MONGO_URI", "YOUR_MONGODB_URI")
+os.environ.setdefault("MONGO_DBNAME", "YOUR_DATABSE_NAME")
 ```
 
-**Anything more?**
+You will need a database with [MongoDB](https://mongodb.com/) designed with the same schema [pictured above](#database-design). From the database you crete with MongoDB's you can get the `MONGO_URI` and `MONGO_DBNAME` values that you need frm MongoDB's connection guide.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+Live deployment of this project via Heroku has three main requirements:
+1. The included Procfile needs to be present 
+2. The same environment variables from above need to be entered into the **Config Vars** area of the **Settings** in the project that you will need to create on [Heroku](https://heroku.com)
+3. The project needs to be deployed, for this I recommend linking your GitHub repository containing the project using the **GitHub** option from the **Deployment method** section under the **Deploy** tab of your Heroku project. Then enable **Automatic deploys**
 
----
 
-Happy coding!
+## Acknowledgements
+
+### Content
+
+Vigorous use of components and classes from Bootstrap.
+[Bootstrap](https://getbootstrap.com/)
+
+ Used for referencing:
+ - [W3 Schools](https://www.w3schools.com/)
+ - [Link](#)
+
+### Media
+
+ - Mockups Screenshot from [Am I Responsive](http://ami.responsivedesign.is/)
+
+
+### Thanks
+
+ - Code Institute
+ - My Code Institute Mentor
+ - My Long Suffering Partner
