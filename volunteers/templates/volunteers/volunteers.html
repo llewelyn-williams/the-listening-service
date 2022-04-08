@@ -24,12 +24,12 @@
                 <div class="col">
                     <div class="card h-100 border-0">
                         {% if volunteer.image %}
-                            <a href="">
+                            <a href="{% url 'volunteer_detail' volunteer.id %}">
                                 <img class="card-img-top img-fluid" src="{{ volunteer.image.url }}"
                                     alt="{{ volunteer.forename }} {{ volunteer.surname }}">
                             </a>
                         {% else %}
-                            <a href="">
+                            <a href="#">
                                 <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
                                     alt="{{ volunteer.forename }} {{ volunteer.surname }}">
                             </a>

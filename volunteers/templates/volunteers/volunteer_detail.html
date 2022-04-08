@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col">
+            <h2>{{ volunteer.forename }} {{ volunteer.surname }}</h2>
+            <hr>
+        </div>
+        
+    </div>
+
+    <div class="row">
+
+        <div class="col">
+            <div class="card h-100 border-0">
+                {% if volunteer.image %}
+                    <a href="">
+                        <img class="card-img-top img-fluid" src="{{ volunteer.image.url }}"
+                            alt="{{ volunteer.forename }} {{ volunteer.surname }}">
+                    </a>
+                {% else %}
+                    <a href="">
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                            alt="{{ volunteer.forename }} {{ volunteer.surname }}">
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col">
+            {% if volunteer.description %}
+              <p>{{ volunteer.description }}</p>
+            {% else %}
+               <small class="text-muted">No Description</small>
+            {% endif %}
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
