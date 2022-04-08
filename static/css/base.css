@@ -11,6 +11,14 @@ h1, h2{
 }
 
 
+/* -------------------------------- Toasts */
+.message-container {
+    position: fixed;
+    right: 20px;
+    top: 70px;
+    z-index: 99999999999;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Add space push content down clearing the header */
