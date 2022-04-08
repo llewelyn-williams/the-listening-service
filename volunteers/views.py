@@ -1,11 +1,24 @@
 """ Volunteers Views """
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
+from django.db.models import Q
 from .models import Volunteer
 
 
 def all_volunteers(request):
     """ A view to show all the volunteers. """
     volunteers = Volunteer.objects.all()
+
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request,
+                               ("Cannot search with a blank search term."))
+                return redirect(reverse('volunteers'))
+
+            queries = Q(forename__icontains=query) | Q(surname__icontains=query) | Q(description__icontains=query)
+            volunteers = volunteers.filter(queries)
 
     context = {
         'volunteers': volunteers,

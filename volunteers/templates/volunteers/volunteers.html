@@ -11,11 +11,28 @@
 
 {% block content %}
 <div class="container-fluid">
+
     <div class="row">
         <div class="col">
             <h2>Volunteers</h2>
             <hr>
         </div>
+
+        <div class="col">
+            <form method="GET" action="{% url 'volunteers' %}">
+                <div class="input-group">
+                    <input class="form-control" type="text" name="q" placeholder="Find a Volunteer">
+                    <div class="input-group-append">
+                        <button class="form-control btn" type="submit">
+                            <span class="icon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
     </div>
     <div class="row">
         <div>
