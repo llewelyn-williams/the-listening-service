@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2>Book and Pay</h2>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-lg-6 order-lg-last mb-5">
+                
+             
+            </div>
+            <div class="col-12 col-lg-6">
+                <p>Please fill out the form below to make a booking.</p>
+                <p>You will be contact by one of our volunteers via the phone number or email you have provided in the next three working days.</p>
+                <p>They will look to arrange a time and date that suits you, within a fortnight.</p>
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>Details</legend>
+                        {{ order_form.full_name | as_crispy_field }}
+                        {{ order_form.email | as_crispy_field }}
+                        {{ order_form.phone_number | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <legend>Payment Card Details</legend>
+                        {{ order_form.street_address1 | as_crispy_field }}
+                        {{ order_form.street_address2 | as_crispy_field }}
+                        {{ order_form.town_or_city | as_crispy_field }}
+                        {{ order_form.county | as_crispy_field }}
+                        {{ order_form.postcode | as_crispy_field }}
+                        {{ order_form.country | as_crispy_field }}
+                        <div>
+							{% if user.is_authenticated %}
+								<label for="id-save-info">Save this address  information to my profile</label>
+                                <input type="checkbox" id="id-save-info" name="save-info" checked>
+							{% else %}
+								<label for="id-save-info">
+                                    <a href="{% url 'account_signup' %}">Create an account</a> or 
+                                    <a href="{% url 'account_login' %}">login</a> to save this information
+                                </label>
+							{% endif %}
+						</div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Talking Topics</legend>
+                        {{ order_form.talking_topics | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <legend>Payment Amount</legend>
+                        {{ order_form.order_total | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <legend>Payment</legend>
+                        <!-- A Stripe card element will go here -->
+                        <div class="mb-3" id="card-element"></div>
+
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                    </fieldset>
+
+                    <div class="submit-button">                    
+						
+						<button id="submit-button" class="btn">
+							<span class="font-weight-bold">Book and Pay Now</span>
+							<span class="icon">
+								<i class="fas fa-lock"></i>
+							</span>
+						</button>
+						<p class="small text-danger my-0">
+							<span class="icon">
+								<i class="fas fa-exclamation-circle"></i>
+							</span>
+							<span>Your card will be charged <strong>£{{ order_form.order_total |floatformat:2 }}</strong></span>
+						</p>
+					</div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

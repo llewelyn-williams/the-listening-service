@@ -22,7 +22,7 @@ class Order(models.Model):
     talking_topics = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     order_total = models.DecimalField(
-        max_digits=10, decimal_places=2, null=False, default=0
+        max_digits=10, decimal_places=2, null=False, default=4.99
         )
 
     def _generate_order_number(self):

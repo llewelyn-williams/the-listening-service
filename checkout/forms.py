@@ -1,5 +1,6 @@
 from django import forms
 from .models import Order
+from decimal import Decimal
 
 
 class OrderForm(forms.ModelForm):
@@ -21,20 +22,21 @@ class OrderForm(forms.ModelForm):
             'full_name': 'Full Name',
             'email': 'Email Address',
             'phone_number': 'Phone Number',
-            'country': 'Country',
-            'postcode': 'Postal Code',
-            'town_or_city': 'Town or City',
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
+            'town_or_city': 'Town or City',
             'county': 'County',
+            'postcode': 'Postal Code',
+            'country': 'Country',
             'talking_topics': 'What you might want to talk about.',
-            'order_total': 5.00,
+            'order_total': Decimal(4.99),
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
+                if self.fields[field] != self.fields['order_total']:
+                    placeholder = f'{placeholders[field]} *'
             else:
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
