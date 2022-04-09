@@ -27,7 +27,7 @@ class OrderForm(forms.ModelForm):
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
             'county': 'County',
-            'talking_topics': 'What you might want to talk about.'
+            'talking_topics': 'What you might want to talk about.',
             'order_total': 5.00,
         }
 
