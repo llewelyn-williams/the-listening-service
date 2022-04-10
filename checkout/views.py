@@ -63,7 +63,8 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        print(intent)
+        print(f'Checkout non-POST request intent: \
+            {intent}')
 
         order_form = OrderForm()
 
