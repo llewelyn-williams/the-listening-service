@@ -1,6 +1,7 @@
+from decimal import Decimal
 from django import forms
 from .models import Order
-from decimal import Decimal
+
 
 
 class OrderForm(forms.ModelForm):
@@ -27,18 +28,18 @@ class OrderForm(forms.ModelForm):
             'town_or_city': 'Town or City',
             'county': 'County',
             'postcode': 'Postal Code',
-            'country': 'Country',
             'talking_topics': 'What you might want to talk about.',
-            'order_total': Decimal(4.99),
+            'order_total': Decimal(5.00),
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if self.fields[field].required:
-                if self.fields[field] != self.fields['order_total']:
-                    placeholder = f'{placeholders[field]} *'
-            else:
-                placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            self.fields[field].label = False
+            if field != 'country':
+                if self.fields[field].required:
+                    if self.fields[field] != self.fields['order_total']:
+                        placeholder = f'{placeholders[field]} *'
+                else:
+                    placeholder = placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
+                self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+                self.fields[field].label = False

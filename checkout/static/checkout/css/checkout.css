@@ -27,6 +27,17 @@
     color: #aab7c4;
 }
 
+/* -------------------------------- Country Field Styling */
+
+elect,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+}
 
 /* -------------------------------- Payment In Progress Overlay */
 
