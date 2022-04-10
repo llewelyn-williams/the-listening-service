@@ -22,8 +22,9 @@ class Order(models.Model):
     talking_topics = models.TextField(null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     order_total = models.DecimalField(
-        max_digits=10, decimal_places=2, null=False, default=4.99
-        )
+        max_digits=10, decimal_places=2, null=False, default=5.00)
+    stripe_pid = models.CharField(
+        max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
         """
