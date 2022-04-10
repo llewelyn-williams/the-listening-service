@@ -13,10 +13,11 @@ class OrderAdmin(admin.ModelAdmin):
               'street_address1', 'street_address2',
               'town_or_city', 'county',
               'postcode', 'country',
-              'date', 'order_total',)
+              'date', 'talking_topics',
+              'order_total',)
 
-    list_display = ('order_number', 'date',
-                    'full_name', 'order_total',
+    list_display = ('date', 'full_name',
+                    'order_total','order_number', 
                     )
 
     ordering = ('-date',)
