@@ -2,7 +2,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+
 from .models import Volunteer
+from .forms import VolunteerForm
 
 
 def all_volunteers(request):
@@ -36,3 +38,14 @@ def volunteer_detail(request, volunteer_id):
     }
 
     return render(request, "volunteers/volunteer_detail.html", context)
+
+
+def add_volunteer(request):
+    """ Add a volunteer """
+    form = VolunteerForm()
+    template = 'volunteers/add_volunteer.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
