@@ -1,0 +1,17 @@
+Hello {{ order.full_name }}!
+
+This is a confirmation of your booking with The Listening Service. Your booking information is below:
+
+Booking Number: {{ order.order_number }}
+Payment Date: {{ order.date }}
+Order Total: ${{ order.order_total }}
+
+One of our volunteers will contact you to arrange a time and date for you booking using the following contact information:
+
+Email Address: {{ order.email }}
+Phone Number: {{ order.phone_number }}
+
+If you have any questions, feel free to contact us at {{ contact_email }}.
+
+All the best,
+The Listening Service
