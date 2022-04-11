@@ -8,3 +8,11 @@
 #id_default_country option:first-child {
     color: #aab7c4;
 }
+
+
+/* -------------------------------- Bookings History */
+/* Shortening it down in case there's a long booking history*/
+.order-history {
+    max-height: 416px; /* roughly the same hight as the form on the page */
+    overflow-y: auto;
+}
