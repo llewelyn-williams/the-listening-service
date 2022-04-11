@@ -46,7 +46,7 @@
                                     alt="{{ volunteer.forename }} {{ volunteer.surname }}">
                             </a>
                         {% else %}
-                            <a href="#">
+                            <a href="{% url 'volunteer_detail' volunteer.id %}">
                                 <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
                                     alt="{{ volunteer.forename }} {{ volunteer.surname }}">
                             </a>
