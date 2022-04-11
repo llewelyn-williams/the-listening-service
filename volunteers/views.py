@@ -1,6 +1,7 @@
 """ Volunteers Views """
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 from .models import Volunteer
@@ -39,9 +40,13 @@ def volunteer_detail(request, volunteer_id):
 
     return render(request, "volunteers/volunteer_detail.html", context)
 
-
+@login_required
 def add_volunteer(request):
     """ Add a volunteer """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only admin can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = VolunteerForm(request.POST, request.FILES)
         if form.is_valid():
@@ -65,9 +70,13 @@ def add_volunteer(request):
 
     return render(request, template, context)
 
-
+@login_required
 def edit_volunteer(request, volunteer_id):
     """ Edit a volunteer """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only admin can do that.')
+        return redirect(reverse('home'))
+
     volunteer = get_object_or_404(Volunteer, pk=volunteer_id)
     if request.method == 'POST':
         form = VolunteerForm(request.POST, request.FILES, instance=volunteer)
@@ -91,9 +100,13 @@ def edit_volunteer(request, volunteer_id):
 
     return render(request, template, context)
 
-
+@login_required
 def delete_volunteer(request, volunteer_id):
     """ Delete a volunteer """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only admin can do that.')
+        return redirect(reverse('home'))
+
     volunteer = get_object_or_404(Volunteer, pk=volunteer_id)
 
     volunteer.delete()
