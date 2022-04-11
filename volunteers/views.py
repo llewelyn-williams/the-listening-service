@@ -45,11 +45,16 @@ def add_volunteer(request):
     if request.method == 'POST':
         form = VolunteerForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully added volunteer!')
-            return redirect(reverse('add_volunteer'))
+            volunteer = form.save()
+            messages.success(
+                request,
+                f'Successfully added volunteer: \
+                    {volunteer.forename} {volunteer.surname}')
+            return redirect(reverse('volunteer_detail', args=[volunteer.id]))
         else:
-            messages.error(request, 'Failed to add volunteer. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to add volunteer. Please ensure the form is valid.')
     else:
         form = VolunteerForm()
 
@@ -85,3 +90,13 @@ def edit_volunteer(request, volunteer_id):
     }
 
     return render(request, template, context)
+
+
+def delete_volunteer(request, volunteer_id):
+    """ Delete a volunteer """
+    volunteer = get_object_or_404(Volunteer, pk=volunteer_id)
+
+    volunteer.delete()
+    messages.success(request, 'Volunteer record removed!')
+
+    return redirect(reverse('volunteers'))
