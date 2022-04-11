@@ -1,0 +1,1 @@
+web: gunicorn the_listening_service.wsgi:application
