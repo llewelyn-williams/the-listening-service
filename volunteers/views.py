@@ -42,7 +42,17 @@ def volunteer_detail(request, volunteer_id):
 
 def add_volunteer(request):
     """ Add a volunteer """
-    form = VolunteerForm()
+    if request.method == 'POST':
+        form = VolunteerForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added volunteer!')
+            return redirect(reverse('add_volunteer'))
+        else:
+            messages.error(request, 'Failed to add volunteer. Please ensure the form is valid.')
+    else:
+        form = VolunteerForm()
+
     template = 'volunteers/add_volunteer.html'
     context = {
         'form': form,
