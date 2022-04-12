@@ -17,9 +17,10 @@ class OrderAdmin(admin.ModelAdmin):
               'order_total', 'stripe_pid',)
 
     list_display = ('date', 'full_name',
-                    'order_total','order_number', 
+                    'order_total', 'order_number',
                     )
 
     ordering = ('-date',)
+
 
 admin.site.register(Order, OrderAdmin)

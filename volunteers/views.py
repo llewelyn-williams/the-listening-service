@@ -20,7 +20,11 @@ def all_volunteers(request):
                                ("Cannot search with a blank search term."))
                 return redirect(reverse('volunteers'))
 
-            queries = Q(forename__icontains=query) | Q(surname__icontains=query) | Q(description__icontains=query)
+            queries = (
+                Q(forename__icontains=query) |
+                Q(surname__icontains=query) |
+                Q(description__icontains=query)
+                )
             volunteers = volunteers.filter(queries)
 
     context = {
@@ -39,6 +43,7 @@ def volunteer_detail(request, volunteer_id):
     }
 
     return render(request, "volunteers/volunteer_detail.html", context)
+
 
 @login_required
 def add_volunteer(request):
@@ -70,6 +75,7 @@ def add_volunteer(request):
 
     return render(request, template, context)
 
+
 @login_required
 def edit_volunteer(request, volunteer_id):
     """ Edit a volunteer """
@@ -90,7 +96,11 @@ def edit_volunteer(request, volunteer_id):
                 'Failed to update volunteer. Please ensure the form is valid.')
     else:
         form = VolunteerForm(instance=volunteer)
-        messages.info(request, f'You are editing {volunteer.forename} {volunteer.surname}')
+        messages.info(
+            request, (
+                f'You are editing {volunteer.forename} {volunteer.surname}'
+                )
+            )
 
     template = 'volunteers/edit_volunteer.html'
     context = {
@@ -99,6 +109,7 @@ def edit_volunteer(request, volunteer_id):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def delete_volunteer(request, volunteer_id):

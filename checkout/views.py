@@ -29,6 +29,7 @@ def cache_checkout_data(request):
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
 
+
 def checkout(request):
 
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
@@ -56,12 +57,14 @@ def checkout(request):
             order.save()
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(
+                reverse('checkout_success', args=[order.order_number])
+                )
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
 
-    else:    
+    else:
         stripe_total = 500
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
@@ -72,7 +75,8 @@ def checkout(request):
         print(f'Checkout non-POST request intent: \
             {intent}')
 
-        # Attempt to prefill the form with any info the user maintains in their profile
+        # Attempt to prefill the form with any info
+        # the user maintains in their profile
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
