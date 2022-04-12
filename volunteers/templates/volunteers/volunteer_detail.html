@@ -56,5 +56,43 @@
         </small>
     {% endif %}
 
+    <table>
+    {% for review in reviews %}
+            
+            {% if request.user.is_superuser %}
+                <tr>
+                    <td>{{ review.review_text }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if not review.approved %}
+                            <a href="../../admin/reviews/review/{{ review.id }}/change">Requires Admin Approval</a>
+                        {% else %}
+                            Review Approved
+                        {% endif %}
+                    </td>
+                </tr>
+            {% else %}
+                {% if review.approved %}
+                    <tr>
+                        <td>{{ review.review_text }}</td>
+                    </tr>
+                {% endif %}
+            {% endif %}
+    {% endfor %}
+    </table>
+
+    {% if request.user.is_authenticated %}
+        <form action="{% url 'add_review' volunteer.id %}" method="POST" id="review-form">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Add a Review</legend>
+                {{ review_form | crispy }}
+            </fieldset>
+            <input type="submit" value="">
+        </form>
+    {% endif %}
+
+
 </div>
 {% endblock %}

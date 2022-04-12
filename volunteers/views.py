@@ -1,8 +1,13 @@
 """ Volunteers Views """
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import (render, redirect, reverse,
+                              get_object_or_404)
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+
+from reviews.models import Review
+from reviews.forms import ReviewForm
+from profiles.models import UserProfile
 
 from .models import Volunteer
 from .forms import VolunteerForm
@@ -37,9 +42,12 @@ def all_volunteers(request):
 def volunteer_detail(request, volunteer_id):
     """ Show an individual volunteer. """
     volunteer = get_object_or_404(Volunteer, pk=volunteer_id)
-
+    review_form = ReviewForm()
+    reviews = Review.objects.filter(volunteer=volunteer)
     context = {
         'volunteer': volunteer,
+        'review_form': review_form,
+        'reviews': reviews,
     }
 
     return render(request, "volunteers/volunteer_detail.html", context)
@@ -124,3 +132,30 @@ def delete_volunteer(request, volunteer_id):
     messages.success(request, 'Volunteer record removed!')
 
     return redirect(reverse('volunteers'))
+
+
+@login_required
+def add_review(request, volunteer_id):
+
+    if request.method == "POST":
+        form_data = {
+            'review_text': request.POST['review_text'],
+        }
+        review_form = ReviewForm(form_data)
+        if review_form.is_valid():
+
+            volunteer = get_object_or_404(Volunteer, pk=volunteer_id)
+            profile = UserProfile.objects.get(user=request.user)
+
+            review = review_form.save(commit=False)
+            # Attach the user's profile to the order
+            review.user_profile = profile
+            review.volunteer = volunteer
+
+            review.save()
+            messages.success(request, 'Review added successfully.')
+            return redirect(reverse('volunteer_detail', args=[volunteer.id]))
+
+        else:
+            messages.error(request, 'There was an error with your form. \
+                Please double check your information.')
