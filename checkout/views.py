@@ -65,7 +65,8 @@ def checkout(request):
                 Please double check your information.')
 
     else:
-        stripe_total = 500
+        booking_cost = 5.00
+        stripe_total = round(booking_cost * 100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,

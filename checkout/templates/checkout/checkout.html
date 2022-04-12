@@ -65,9 +65,7 @@
                         {{ order_form.talking_topics | as_crispy_field }}
                     </fieldset>
                     <fieldset>
-                        <legend>Payment Amount</legend>
-                        {{ order_form.order_total | as_crispy_field }}
-                    </fieldset>
+                    {{ order_form.order_total.as_hidden }}
                     <fieldset>
                         <legend>Card Details</legend>
                         <!-- A Stripe card element will go here -->
@@ -91,7 +89,7 @@
 							<span class="icon">
 								<i class="fas fa-exclamation-circle"></i>
 							</span>
-							<span>Your card will be charged <strong>£{{ order_form.order_total |floatformat:2 }}</strong></span>
+							<span>Your card will be charged <strong>£5.00</strong></span>
 						</p>
 					</div>
                 </form>
