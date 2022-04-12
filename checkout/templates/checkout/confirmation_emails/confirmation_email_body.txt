@@ -4,7 +4,7 @@ This is a confirmation of your booking with The Listening Service. Your booking 
 
 Booking Number: {{ order.order_number }}
 Payment Date: {{ order.date }}
-Order Total: ${{ order.order_total }}
+Order Total: £{{ order.order_total }}
 
 One of our volunteers will contact you to arrange a time and date for you booking using the following contact information:
 

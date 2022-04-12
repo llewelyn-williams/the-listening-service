@@ -7,6 +7,7 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order
 
+
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 
@@ -91,11 +92,14 @@ def checkout(request):
                     'street_address1': profile.default_street_address1,
                     'street_address2': profile.default_street_address2,
                     'county': profile.default_county,
+                    'order_total':booking_cost,
                 })
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
         else:
-            order_form = OrderForm()
+            order_form = OrderForm(initial={
+                    'order_total': booking_cost,
+                })
 
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
