@@ -10,6 +10,9 @@ h1, h2{
     color: green;
 }
 
+header {
+    background-color: whitesmoke;
+}
 
 /* -------------------------------- Toasts */
 .message-container {
@@ -110,6 +113,6 @@ h1, h2{
 /* Add space push content down clearing the header */
 @media (min-width: 992px) {
     .header-container {
-        padding-top: 200px;
+        padding-top: 150px;
     }
 }
