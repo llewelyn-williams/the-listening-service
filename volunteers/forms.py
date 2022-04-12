@@ -7,7 +7,7 @@ class VolunteerForm(forms.ModelForm):
 
     class Meta:
         model = Volunteer
-        fields = '__all__'
+        fields = ('forename', 'surname', 'description', 'image')
 
     image = forms.ImageField(
         label='Image',

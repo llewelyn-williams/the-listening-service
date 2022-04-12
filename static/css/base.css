@@ -6,13 +6,54 @@ html {
     padding-top: 100px;
 }
 
-h1, h2{
-    color: green;
+
+/* -------------------------------- Colour Scheme */
+
+a:hover {
+    color: #ffffff;
+    text-decoration: none;
 }
 
-header {
-    background-color: whitesmoke;
+.light-shade {
+    color: #F5F7F7;
 }
+
+.light-shade-background {
+    background-color: #F5F7F7;
+}
+
+.light-accent {
+    color: #F3926C;
+}
+
+.light-accent-background {
+    background-color: #F3926C;
+}
+
+.main-brand {
+    color: #B1ADBD;
+}
+
+.main-brand-background {
+    background-color: #B1ADBD;
+}
+
+.dark-accent {
+    color: #5FABC4;
+}
+
+.dark-accent-background {
+    background-color: #5FABC4;
+}
+
+.dark-shade {
+    color: #5973B6;
+}
+
+.dark-shade-background {
+    background-color: #5973B6;
+}
+
 
 /* -------------------------------- Toasts */
 .message-container {
@@ -110,9 +151,22 @@ header {
 
 /* -------------------------------- Media Queries */
 
+
+/* ----- For Larger ----- */
+
 /* Add space push content down clearing the header */
 @media (min-width: 992px) {
     .header-container {
         padding-top: 150px;
+    }
+
+
+}
+
+/* ----- For smaller ----- */
+@media (max-width: 992px) {
+    a:hover {
+        color: #5973B6;
+        text-decoration: none;
     }
 }

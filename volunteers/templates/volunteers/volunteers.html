@@ -44,7 +44,7 @@
             <div class="row">
                 {% for volunteer in volunteers %}
                 <div class="col">
-                    <div class="card h-100 border-0">
+                    <div class="card h-100 border">
                         {% if volunteer.image %}
                             <a href="{% url 'volunteer_detail' volunteer.id %}">
                                 <img class="card-img-top img-fluid" src="{{ volunteer.image.url }}"
@@ -58,7 +58,7 @@
                         {% endif %}
                         
                         <div class="card-body pb-0">
-                            <p class="mb-0">{{ volunteer.forename }} {{ volunteer.surname }}</p>
+                            <h3 class="mb-0">{{ volunteer.forename }} {{ volunteer.surname }}</h3>
                         </div>
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">

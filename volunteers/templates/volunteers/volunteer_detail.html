@@ -14,7 +14,8 @@
 
     <div class="row">
 
-        <div class="col">
+        <div class="col-sm-6 mx-auto">
+            <hr>
             <h2>{{ volunteer.forename }} {{ volunteer.surname }}</h2>
             <hr>
         </div>
@@ -23,23 +24,19 @@
 
     <div class="row">
 
-        <div class="col">
-            <div class="card h-100 border-0">
+        <div class="col-8 col-sm-6 col-lg-4 col-xl-3 col-xxl-2 mx-auto">
+            <div class="card h-100 border">
                 {% if volunteer.image %}
-                    <a href="">
                         <img class="card-img-top img-fluid" src="{{ volunteer.image.url }}"
                             alt="{{ volunteer.forename }} {{ volunteer.surname }}">
-                    </a>
                 {% else %}
-                    <a href="">
                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
                             alt="{{ volunteer.forename }} {{ volunteer.surname }}">
-                    </a>
                 {% endif %}
             </div>
         </div>
 
-        <div class="col">
+        <div class="col-sm-4 mx-auto text-center pt-5">
             {% if volunteer.description %}
               <p>{{ volunteer.description }}</p>
             {% else %}
@@ -50,37 +47,41 @@
     </div>
 
     {% if request.user.is_superuser %}
-        <small class="ml-3">
-            <a href="{% url 'edit_volunteer' volunteer.id %}">Edit</a> | 
-            <a class="text-danger" href="{% url 'delete_volunteer' volunteer.id %}">Delete</a>
-        </small>
+        <div class="row">
+            <div class="col-sm-6 mx-auto">
+                <hr>
+                <small>
+                    <a href="{% url 'edit_volunteer' volunteer.id %}">Edit</a> |
+                    <a class="text-danger" href="{% url 'delete_volunteer' volunteer.id %}">Delete</a>
+                </small>
+                <hr>
+            </div>
+        </div>
     {% endif %}
 
-    <table>
-    {% for review in reviews %}
-            
-            {% if request.user.is_superuser %}
-                <tr>
-                    <td>{{ review.review_text }}</td>
-                </tr>
-                <tr>
-                    <td>
-                        {% if not review.approved %}
-                            <a href="../../admin/reviews/review/{{ review.id }}/change">Requires Admin Approval</a>
+        <h3 class="pt-3">Reviews</h3>
+        <div class="row">
+            {% if reviews %}
+                {% for review in reviews %}
+                        {% if request.user.is_superuser %}
+                            <div class="col-8 border rounded m-1 p-1">{{ review.review_text }}</div>
+                            <div class="col border rounded m-1 p-1 text-right">
+                                    {% if not review.approved %}
+                                        <a href="../../admin/reviews/review/{{ review.id }}/change">Requires Admin Approval</a>
+                                    {% else %}
+                                        Review Approved
+                                    {% endif %}
+                                </div>
                         {% else %}
-                            Review Approved
+                            {% if review.approved %}
+                            <div class="col-11 border rounded mx-auto mb-4 p-2">{{ review.review_text }}</div>
+                            {% endif %}
                         {% endif %}
-                    </td>
-                </tr>
+                {% endfor %}
             {% else %}
-                {% if review.approved %}
-                    <tr>
-                        <td>{{ review.review_text }}</td>
-                    </tr>
-                {% endif %}
+                <div class="col-11 border rounded mx-auto mb-4 p-2">No have been added yet. Would you like to write a review for {{ volunteer.forename }}?</div>
             {% endif %}
-    {% endfor %}
-    </table>
+        </div>
 
     {% if request.user.is_authenticated %}
         <form action="{% url 'add_review' volunteer.id %}" method="POST" id="review-form">
@@ -89,7 +90,12 @@
                 <legend>Add a Review</legend>
                 {{ review_form | crispy }}
             </fieldset>
-            <input type="submit" value="">
+            <div class="d-flex flex-row-reverse">
+                    <input type="submit" class="btn btn-primary" value="Post Review">
+            </div>
+            <div class="d-flex flex-row-reverse">
+                <small class="light-accent">Your review won't appear until it has been approved.</small>
+        </div>
         </form>
     {% endif %}
 
