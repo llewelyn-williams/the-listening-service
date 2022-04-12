@@ -46,7 +46,6 @@ class StripeWH_Handler:
         """
         intent = event.data.object
         pid = intent.id
-        talking_topics = intent.metadata.talking_topics
         save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details

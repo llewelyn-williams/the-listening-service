@@ -92,7 +92,7 @@ def checkout(request):
                     'street_address1': profile.default_street_address1,
                     'street_address2': profile.default_street_address2,
                     'county': profile.default_county,
-                    'order_total':booking_cost,
+                    'order_total': booking_cost,
                 })
             except UserProfile.DoesNotExist:
                 order_form = OrderForm()
