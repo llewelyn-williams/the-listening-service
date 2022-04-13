@@ -157,7 +157,7 @@ def add_review(request, volunteer_id):
             review.volunteer = volunteer
 
             review.save()
-            messages.success(request, 'Review added successfully.')
+            messages.success(request, 'Review submitted successfully.')
             return redirect(reverse('volunteer_detail', args=[volunteer.id]))
 
         else:
