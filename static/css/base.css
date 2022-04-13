@@ -191,7 +191,7 @@ header a:hover {
 
 /* ----- For smaller ----- */
 @media (max-width: 992px) {
-    a:hover {
+    header a:hover {
         color: #5973B6;
         text-decoration: none;
     }
