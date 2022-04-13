@@ -16,9 +16,34 @@
                 <h1 class="m-5">
                     Volunteer listeners are available to lend an ear. 
                 </h1>
-                <h4 class="m-5">
+
+                <h4 class="mt-2">
                     <a href="{% url 'checkout' %}" class="btn btn-primary">Book a Session</a>
                 </h4>
+
+                {% if not request.user.is_authenticated %}
+                <div class="row">
+                    <div class="col-5"></div>
+                    <div class="col-2 mx-auto">
+                        <hr>
+                    </div>
+                    <div class="col-5"></div>
+
+                    <div class="col-0 col-sm-3 col-md-4"></div>
+                    <div class="col">
+                        <h4>
+                            <a href="{% url 'account_signup' %}" class="btn btn btn-dark btn-block">Register</a>
+                        </h4>
+                    </div>
+                    <div class="col">
+                        <h4>
+                            <a href="{% url 'account_login' %}" class="btn btn btn-secondary btn-block"><span class="nobreak">Sign In</span></a>
+                        </h4>
+                    </div>
+                    <div class="col-0 col-sm-3 col-md-4"></div>
+                </div>
+                {% endif %}
+
             </div>
         </div>
     </div>

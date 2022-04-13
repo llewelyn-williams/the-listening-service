@@ -6,10 +6,13 @@ html {
     padding-top: 100px;
 }
 
+.nobreak { 
+    white-space: nowrap;
+}
 
 /* -------------------------------- Colour Scheme */
 
-a:hover {
+header a:hover {
     color: #ffffff;
     text-decoration: none;
 }
