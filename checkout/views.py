@@ -74,9 +74,6 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        print(f'Checkout non-POST request intent: \
-            {intent}')
-
         # Attempt to prefill the form with any info
         # the user maintains in their profile
         if request.user.is_authenticated:
