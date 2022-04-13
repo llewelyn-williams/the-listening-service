@@ -81,8 +81,10 @@
             {% else %}
                 <div class="col-11 border rounded mx-auto mb-4 p-2">None have been added yet. Would you like to write a review for {{ volunteer.forename }}?</div>
             {% endif %}
-            {% if reviews and not approved_reviews %}
+            {% if reviews and not approved_reviews and not request.user.is_superuser %}
                 <div class="col-11 border rounded mx-auto mb-4 p-2">All reviews for {{ volunteer.forename }} are currently pending admin approval before appearing. Would you like to add another?</div>
+            {% elif reviews and not approved_reviews and request.user.is_superuser %}
+                <div class="col-11 border border-danger rounded mx-auto mb-4 p-2">All reviews for {{ volunteer.forename }} are currently pending admin approval. Please approve appropriate reviews.</div>
             {% endif %}
         </div>
 
@@ -100,8 +102,14 @@
                 <small class="light-accent">Your review won't appear until it has been approved.</small>
         </div>
         </form>
+    {% else %}
+        <div class="col-3 border mx-auto mb-4 p-2 mb-5">
+            <a href="{% url 'account_signup' %}">Create an account</a> or 
+            <a href="{% url 'account_login' %}">login</a> to be able to add a review.
+        </div>
     {% endif %}
-
+    
+    <div class="row"></div>
 
 </div>
 {% endblock %}
