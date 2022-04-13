@@ -44,10 +44,12 @@ def volunteer_detail(request, volunteer_id):
     volunteer = get_object_or_404(Volunteer, pk=volunteer_id)
     review_form = ReviewForm()
     reviews = Review.objects.filter(volunteer=volunteer)
+    approved_reviews = Review.objects.filter(volunteer=volunteer, approved=True)
     context = {
         'volunteer': volunteer,
         'review_form': review_form,
         'reviews': reviews,
+        'approved_reviews': approved_reviews,
     }
 
     return render(request, "volunteers/volunteer_detail.html", context)
