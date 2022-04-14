@@ -175,15 +175,15 @@ Possible features to be considered for future releases.
 
 ### Libraries
  - [jQuery](https://jquery.com/)
- - [Link](#)
  
 ### Frameworks
- - [Link](#)
-	 - ...
- - [Link](#)
-	 - ...
+ - [Django](https://www.djangoproject.com/)
+	 - To build web app
+ - [Bootstrap](https://getbootstrap.com/)
+	 - For pre-defined HTML and CSS.
 
 ### Other Services and Software
+ - [Dependencies](https://github.com/llewelyn-williams/the-listening-service/network/dependencies)
  - Git
  	 - Version control.
  - GitHub
@@ -196,12 +196,10 @@ Possible features to be considered for future releases.
 	 - Used to generate table of contents in markdown for this README markdown file.
  - [Moon Modeler](https://www.datensen.com/data-modeling/moon-modeler-for-databases.html)
 	 - For creating the database diagram.
- - [Link](#)
-	 - ...
+ - [Octopus.do](https://octopus.do/)
+	 - For Sitemap
  - [FontAwesome](https://fontawesome.com/)
 	 - For icons.
- - [GoogleFonts](https://fonts.google.com/)
-	 - Fonts.
  - [Heroku](https://heroku.com)
 	 - For deploying the live app.
 
@@ -262,13 +260,20 @@ Live deployment of this project via Heroku has three main requirements:
 Vigorous use of components and classes from Bootstrap.
 [Bootstrap](https://getbootstrap.com/)
 
- Used for referencing:
- - [W3 Schools](https://www.w3schools.com/)
- - [Link](#)
+Basis for Django project and therefore much code and no-media image:
+- [Code Institute's Boutique Ado - Educational Project](https://github.com/Code-Institute-Solutions/boutique_ado_v1/)
+
+Other sources referenced inline.
 
 ### Media
 
  - Mockups Screenshot from [Am I Responsive](http://ami.responsivedesign.is/)
+ - Volunteer Profile Images
+	- [volunteer1](https://pixabay.com/photos/man-portrait-adult-young-men-4568762/)
+	- [volunteer2](https://pixabay.com/photos/woman-model-smile-joy-beauty-6126481/)
+	- [volunteer3](https://pixabay.com/photos/female-amye-headshot-hair-lady-4572747/)
+	- [volunteer4](https://pixabay.com/photos/woman-portrait-headshot-female-4525646/)
+	- [volunteer5](https://pixabay.com/photos/woman-white-headshot-blonde-female-1460150/)
 
 
 ### Thanks
