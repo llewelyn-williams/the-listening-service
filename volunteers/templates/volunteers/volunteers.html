@@ -58,7 +58,9 @@
                         {% endif %}
                         
                         <div class="card-body pb-0">
-                            <h3 class="mb-0">{{ volunteer.forename }} {{ volunteer.surname }}</h3>
+                            <a href="{% url 'volunteer_detail' volunteer.id %}" class="volunteer-link">
+                                <h3 class="mb-0">{{ volunteer.forename }} {{ volunteer.surname }}</h3>
+                            </a>
                         </div>
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">

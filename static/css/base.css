@@ -57,6 +57,15 @@ header a:hover {
     background-color: #5973B6;
 }
 
+.volunteer-link {
+    color: #000;
+    text-decoration: none;
+}
+.volunteer-link:hover {
+    color: rgb(62, 53, 70);
+    text-decoration: none;
+}
+
 
 /* -------------------------------- Toasts */
 .message-container {
