@@ -234,22 +234,71 @@ This project was built in an environment using Python3, therefore it is likely y
 
 Install the dependencies all together using the requirements.txt by using the command `pip3 install -r requirements.txt` from the CLI of your IDE.
 
-This project uses environment variables not included in the repository. To set these locally create an `env.py` file and include the following:
+This project uses environment variables not included in the repository. These will need to be set locally for development purposes and also in the deployed environment. You will need to pay attention to the following settings in the project main django app `settings.py` file and set them appropriately in your environments:
 ```
-import os
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
+DEBUG = 'DEVELOPMENT' in os.environ
 
-os.environ.setdefault("IP", "0.0.0.0")
-os.environ.setdefault("PORT", "5000")
-os.environ.setdefault("SECRET_KEY", "YOUR_SECRET KEY - can be anything")
-os.environ.setdefault("MONGO_URI", "YOUR_MONGODB_URI")
-os.environ.setdefault("MONGO_DBNAME", "YOUR_DATABSE_NAME")
+
+# DATABASE_URL will come from Postgres that you will need in your Heroku app (available under the resources tab)
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
+
+
+# You will need an Amazon Web Service Bucket configured with public access
+# Keys and names for this will be available from AWS.
+
+# Bucket Config
+AWS_STORAGE_BUCKET_NAME = 'the-listening-service'
+AWS_S3_REGION_NAME = 'eu-west-2'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+
+#You will need a Stripe account. Keys will be available from there.
+#You will also need to activate a webhook from within Stripe with all services
+#directed to your deployed app address /checkout/wh/
+#The WH key will be available from there.
+
+# Stripe
+STRIPE_CURRENCY = 'gbp'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+
+
+#Set DEVELOPMENT to True in your development environment, and not in you deployed environment
+# Email pass and user can be obtained by enabling app access to a gmail account
+# This is possible from the security tab once 2-factor authentication has been enabled.
+if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = 'TheListeningService@example.com'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 ```
 
-You will need a database with [MongoDB](https://mongodb.com/) designed with the same schema [pictured above](#database-design). From the database you crete with MongoDB's you can get the `MONGO_URI` and `MONGO_DBNAME` values that you need frm MongoDB's connection guide.
 
 Live deployment of this project via Heroku has three main requirements:
 1. The included Procfile needs to be present 
-2. The same environment variables from above need to be entered into the **Config Vars** area of the **Settings** in the project that you will need to create on [Heroku](https://heroku.com)
+2. Correct environment variables as detailed above need to be entered into the **Config Vars** area of the **Settings** in the project that you will need to create on [Heroku](https://heroku.com)
 3. The project needs to be deployed, for this I recommend linking your GitHub repository containing the project using the **GitHub** option from the **Deployment method** section under the **Deploy** tab of your Heroku project. Then enable **Automatic deploys**
 
 
@@ -257,8 +306,7 @@ Live deployment of this project via Heroku has three main requirements:
 
 ### Content
 
-Vigorous use of components and classes from Bootstrap.
-[Bootstrap](https://getbootstrap.com/)
+Vigorous use of components and classes from [Bootstrap](https://getbootstrap.com/).
 
 Basis for Django project and therefore much code and no-media image:
 - [Code Institute's Boutique Ado - Educational Project](https://github.com/Code-Institute-Solutions/boutique_ado_v1/)
