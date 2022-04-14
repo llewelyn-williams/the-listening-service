@@ -15,7 +15,6 @@ A website that allows users to access a mental health wellbeing scheme where the
   * [Skeleton](#skeleton)
 	+ [Database Design](#database-design)
     + [Sitemap](#sitemap)
-    + [Wireframes](#wireframes)
   * [Surface](#surface)
 - [Features](#features)
   * [Current Features](#current-features)
@@ -109,19 +108,14 @@ _My Account_
 #### Sitemap
 
 ![Diagram showing the different webpages](assets/readme-images/sitemap.png)
+
 The above sitemap shows the navigation possibilities for a non-logged-in user only.
 Many more paths and possibilities become available to a logged in user such as the Profile. Even more for a superuser with e ability to add and edit pages for the volunteers for example.
-
-#### Wireframes
-
-Wireframes showing layout plans.
-
-![An image previewing some of the mobile wireframes made for the project](assets/wireframes/wireframes.png)
 
 
 ### Surface
 
-Choices for the visual style of the project are ...
+Choices for the visual style of the project are to be clean and clear to instil confidence in the user that the service is professional and crate trust in both taking payments and the the service that will be provided is of quality. Minimal clutter in order to highlight the straight ford nature of the service offered and to draw the most attention to the primary buttons to progress though the site to make a booking request. These primary buttons are to stand out against the background so that users are drawn to them.
 
 
 ## Features
