@@ -67,25 +67,44 @@ All areas that users will need to access will be accessible by initiating a rout
 
 ### Skeleton
 
-...
+There will be 4 main models to handle data to be stored (excluding those provided from the framework itself or specific additional libraries or frameworks)
+
+1. UserProfile  
+Contains the user address information to speed up booking when the user is logged in.
+2. Review  
+Contains reviews submitted by users for specific volunteers.
+3. Volunteer  
+Contains the information about the volunteers to display on the site.
+4. Order
+Contains the booking information to be able to feedback to admin and user the details of the booking request made. 
+
+Authentication will be handled by [allauth](https://django-allauth.readthedocs.io/).
+
+There will be specific relationships between some of these:
+1. Orders will be linked to specific Users
+2. Reviews will be linked to both a specific user who submitted the review as well as the volunteer that the review belongs to.
 
 #### Database Design
 
 ![Diagram showing the database design](assets/readme-images/database-diagram.png)
 
-...
-
 The navigation menu will appear differently depending on if a user is logged in or not.
-| Menu Item | Not Logged In | Logged In |
+
+_Main Nav_
+| Menu Item | Not Logged In | Logged In | Logged In Superuser |
 |----------|---------------|---------------|
-| Home | :heavy_check_mark: | :heavy_check_mark: |
-| ... | :heavy_check_mark: | :heavy_check_mark: |
-| ... | :heavy_check_mark: (redirects to Log In) | :heavy_check_mark: |
-| ... | :heavy_check_mark: (redirects to Log In) | :heavy_check_mark: |
-| Profile | :x: | :heavy_check_mark: |
-| Sign Up | :heavy_check_mark: | :x: |
-| Log In | :heavy_check_mark: | :x: |
-| Log Out | :x: | :heavy_check_mark: |
+| Home | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Volunteers | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| About | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+
+_My Account_
+| Menu Item | Not Logged In | Logged In | Logged In Superuser |
+|----------|---------------|---------------|
+| Add a Volunteer | :x: | :x:  | :heavy_check_mark: |
+| My Profile | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Register | :heavy_check_mark: | :x: | :x: |
+| Log In | :heavy_check_mark: | :x: | :x: |
+| Log Out | :x: | :heavy_check_mark: | :heavy_check_mark: |
 
 #### Sitemap
 
