@@ -108,7 +108,9 @@ _My Account_
 
 #### Sitemap
 
-![Diagram showing the different webpages](assets/readme-images/sitemap.svg)
+![Diagram showing the different webpages](assets/readme-images/sitemap.png)
+The above sitemap shows the navigation possibilities for a non-logged-in user only.
+Many more paths and possibilities become available to a logged in user such as the Profile. Even more for a superuser with e ability to add and edit pages for the volunteers for example.
 
 #### Wireframes
 
