@@ -45,10 +45,12 @@
     </div>
     <div class="row col-10 offset-1">
         <div>
+            {% if query and not volunteers %}
+                <p class="text-danger">No results for search "{{ query }}".</p>
+            {% elif query and volunteers%}
+                <p class="text-info">{{ volunteers.count }} volunteer{% if volunteers.count > 1 %}s{% endif %} found for search "{{ query }}".</p>
+            {% endif %}
             <div class="row">
-                {% if query and not volunteers %}
-                    <p class="text-danger">No results for search: {{ query }}</p>
-                {% endif %}
                 {% for volunteer in volunteers %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-5">
                     <div class="card h-100 border">
