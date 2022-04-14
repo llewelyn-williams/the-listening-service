@@ -92,14 +92,14 @@ The navigation menu will appear differently depending on if a user is logged in 
 
 _Main Nav_
 | Menu Item | Not Logged In | Logged In | Logged In Superuser |
-|----------|---------------|---------------|
+|----------|---------------|---------------|---------------|
 | Home | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Volunteers | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | About | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 _My Account_
 | Menu Item | Not Logged In | Logged In | Logged In Superuser |
-|----------|---------------|---------------|
+|----------|---------------|---------------|---------------|
 | Add a Volunteer | :x: | :x:  | :heavy_check_mark: |
 | My Profile | :x: | :heavy_check_mark: | :heavy_check_mark: |
 | Register | :heavy_check_mark: | :x: | :x: |
