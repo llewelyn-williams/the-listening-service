@@ -25,7 +25,11 @@
             <hr class="d-none d-md-block">
             <form method="GET" action="{% url 'volunteers' %}">
                 <div class="input-group">
-                    <input class="form-control" type="text" name="q" placeholder="Find a Volunteer">
+                    {% if not query %}
+                        <input class="form-control" type="text" name="q" placeholder="Find a Volunteer">
+                    {% else %}
+                        <input class="form-control" type="text" name="q" placeholder="{{ query }}">
+                    {% endif %}
                     <div class="input-group-append">
                         <button class="form-control btn" type="submit">
                             <span class="icon">
@@ -42,6 +46,9 @@
     <div class="row col-10 offset-1">
         <div>
             <div class="row">
+                {% if query and not volunteers %}
+                    <p class="text-danger">No results for search: {{ query }}</p>
+                {% endif %}
                 {% for volunteer in volunteers %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-5">
                     <div class="card h-100 border">

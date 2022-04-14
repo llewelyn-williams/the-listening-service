@@ -32,9 +32,14 @@ def all_volunteers(request):
                 )
             volunteers = volunteers.filter(queries)
 
-    context = {
-        'volunteers': volunteers,
-    }
+            context = {
+                'volunteers': volunteers,
+                'query': query,
+            }
+    else:
+        context = {
+            'volunteers': volunteers,
+        }
 
     return render(request, "volunteers/volunteers.html", context)
 
