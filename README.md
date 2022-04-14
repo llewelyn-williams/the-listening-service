@@ -62,8 +62,8 @@ To achieve these aims the project will offer a booking system whereby users will
 
 ### Structure
 
-The project will make use of ..
-Information will be presented across web pages and data collected using forms ..
+The project will make use of django models, templates and views to structure the database, webpages and logic for the site. Information will be presented to the users via linked webpages, information collected via forms, and information stored using django models that can be accessed via the django admin interface.
+All areas that users will need to access will be accessible by initiating a route into a process from the main navigation at the top of the webpage. Public information will be via a main navigation bar, while user specific information will be via a separate UserAccount menu.
 
 ### Skeleton
 
