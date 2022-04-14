@@ -33,32 +33,29 @@ Throughout the different sections the design should remain well laid out regardl
 ### Test
 Using Google Developer Tools I changed to each device available to see how the layout out looked, as well as using the "responsive" layout and changing the shape and size of the viewport with the drag handles. I did this repeatedly during the development process and again at the end.
 ### Result
-...
-### Fix
-...
+The pages changed to a satisfactory layout for each different size.
+
 
 
 ## Functionality
 ### Expected
 That the user will be able to navigate and perform CRUD actions without experiencing errors.
 ### Test
-...
+Logged in as super user and created, edited and deleted test volunteers.
 ### Result
-...
-### Fix
-...
+Behaviour was as expected.
 
 
+![Lighthouse Report Summary](assets/readme-images/lighthouse-report.png)  
 ## Performance
 ### Expected
 For the site to load quickly.
 ### Test
 Using Lighthouse from Chrome Developer tools.
 ### Result
-![Lighthouse Performance Report](assets/readme-images/performance.png)  
-...
+All issues affecting performance were from included CSS or JS libraries.
 ### Unresolved
-...
+A solution would be to remove the unused portions of the includes, however it is not practical therefore the amount of reduced performance will be a compromise for using those libraries.
  
  
 ## Accessibility
@@ -67,12 +64,14 @@ The site should not have any major accessibility issues as shown by accessibilit
 ### Test
 Using Lighthouse from Chrome Developer tools.
 ### Result
- ![Lighthouse Accessibility Report](assets/readme-images/accessibility.png)  
-...
-### Fix
-...
+There were three issues.
+1. A few parts of low contrast
+2. The li issue that was picked up by the HTML Validator
+3. Non-sequentially descending headings.
 ### Unresolved
-...
+1. The contrast level was not _the worst_ and unfortunately time is now an issue so contrast not increased, although this is possible by changing colours used.
+2. For the same reasons as above this will not be fixed right now.
+3. While it has given this warning, there are none that are completely out of order, it is only that some headings have been kipped in some areas.
  
 ## SEO
 ### Expected
@@ -80,10 +79,9 @@ No major issues to show from SEO report.
 ### Test
 Using Lighthouse from Chrome Developer tools, I ran a report.
 ### Result
- ![Lighthouse SEO Report](assets/readme-images/seo.png)  
-...
-### Fix
-...
+Missing meta description.
+### Unresolved
+Time limited, but can be fixed by including one.
  
 ## Usability
 ### Expected
@@ -91,8 +89,5 @@ That users should be able to use the site intuitively
 ### Test
 Throughout development I checked the navigation pathways throughout site.
 ### Result
-...
-### Fix
-...
-### Unresolved
-...
+Behaviour was as expected, I could get to where I expected to go by clicking on the links.
+There was several points where I noticed that there could be more feedback to the user, so I added in extras to make things clearer, such as the search results display for the volunteers. Without this is was a little unclear that you were looking at a page that was the result of a search and therefore only showing filtered results.
