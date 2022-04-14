@@ -1,6 +1,6 @@
 # The Listening Service
 
-Project Description
+A website that allows users to access a mental health wellbeing scheme where they can request to arrange a booking with a volunteer listener.
 
 **The live project is available on Heroku: [The Listening Service](https://the-listening-service.herokuapp.com)**
 
@@ -37,31 +37,28 @@ Project Description
 
 ### Strategy
 
-*The Listening Service*'s aim is ...
+*The Listening Service*'s aim is to bring together people who could benefit from having a stranger to talk to and volunteers who are willing to give their time and "lend an ear" to people accessing the service.
 Value is to be obtained by:
-- ...
-- ...
-
-
-Details...
+- Promoting the healthy practice of talking through issues.
+- Connecting well intentioned individuals to generate healthy social participation.
+- Providing a point of access for those in need of someone to listen.
 
 ### Scope
 
-The project will make use of ...
+To achieve these aims the project will offer a booking system whereby users will be able to make a formal request (via payment) that is passed to a database to enable the behind the scenes team to track and manage bookings with volunteers and users. Booking reference emails and booking history will allow users to monitor the request that they've made and money they have spent using the service.
 
 #### User Stories
 
 | Scenario | Requirements  |
 |----------|---------------|
-| **As ...**, I want .... | There should be ... |
-| I want ... | The content ...|
-| I want ... | A way for the user to ...|
-| **As ...**, I want ... | The ability to ... |
-| I want ...  | The ...|
-| I want ... | To provide ...|
-| **As ...**, I want to be able to ... | ... |
-| I want to ... | A ...|
-| I want to ... | ...|
+| **As a potential user**, I want to know what the service offers and how much it costs. | There should be an easy to access About page with the information required stated clearly. |
+| I want to see who is involved. | A page to show the currently active volunteers with the project to provide users with an understanding of who they might be talking to. |
+| I want sign up before I start placing bookings | Prompts and links to sign up to be displayed prominently. |
+| **As a returning user**, I want to be able to access a history of my activity | A profile page with a list of prior booking requests. |
+| I want the process to be quicker and easier than if I weren't signed up.  | Pre filled booking form using data provided by the user. |
+| I want to be able to provide feedback. | The ability to leave reviews. |
+| **As a site admin**, I want to be able to update the volunteers shown to users. | The ability to add, update and remove volunteers from the site. |
+| I want to only allow appropriate user submitted information to display on the site | A system whereby reviews do not appear publicly unless approved by an admin. |
 
 ### Structure
 
