@@ -120,22 +120,24 @@ Choices for the visual style of the project are to be clean and clear to instil 
 
 ## Features
 
-The project allows users the ability to ...
+Primarily the project allows users the ability to make payments via Stripe to secure a booking with a volunteer to share some time and space to communicate, for the purposes of improving mental wellbeing. Users can also store personal details to speed up payments in the future as well as see a personal history of booking requests made.
+Admin can control the review content left by users for volunteers as well as manage the volunteer records themselves and therefore what content appears on the volunteers page.
 
 ### Current Features
 These features have been implemented in the project.
 
  - Register & Login Functionality
-	 * Certain areas of the website and menu items are not accessible to users unless they have created an account and logged in.
-	 * ...
+	 * Through a combination of allauth functionality and conditional logic in either the views or templates, certain areas of the website and menu items are not accessible to users unless they have created an account and logged in.
+	 * Only superusers have access to edit and delete volunteers and approve reviews submitted.
 	 
-![...](assets/readme-images/....png)
+![The Sign In Form](assets/readme-images/sign-in.png)
+![Edit and Delete Button for Admin](assets/readme-images/edit-volunteer.png)
 
  - ...
 	 * ...
 	 * ...
 	 
-![...](assets/readme-images/....png)
+![Edit and Delete Button for Admin](assets/readme-images/edit-volunteer.png)
 
  - ...
 	 * ...
