@@ -2,7 +2,7 @@
 
 A website that allows users to access a mental health wellbeing scheme where they can request to arrange a booking with a volunteer listener.
 
-**The live project is available on Heroku: [The Listening Service](https://the-listening-service.herokuapp.com)**
+**The live project is available on Render: [The Listening Service](https://the-listening-service.onrender.com)**
 
 ![Image showing the project displaying responsively on different device types.](assets/readme-images/amiresponsive.png)
 
@@ -202,6 +202,8 @@ Possible features to be considered for future releases.
 	 - For icons.
  - [Heroku](https://heroku.com)
 	 - For deploying the live app.
+ - [ElephantSQL](https://www.elephantsql.com/)
+	 - For hosting the database.
 
 
 ## Testing
@@ -241,6 +243,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 
 # DATABASE_URL will come from Postgres that you will need in your Heroku app (available under the resources tab)
+# Or from wherever your PostgreSQL database is. Since Heroku started charging for theirs, this project's database now uses ElephantSQL
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
@@ -301,6 +304,7 @@ Live deployment of this project via Heroku has three main requirements:
 2. Correct environment variables as detailed above need to be entered into the **Config Vars** area of the **Settings** in the project that you will need to create on [Heroku](https://heroku.com)
 3. The project needs to be deployed, for this I recommend linking your GitHub repository containing the project using the **GitHub** option from the **Deployment method** section under the **Deploy** tab of your Heroku project. Then enable **Automatic deploys**
 
+Live deployment of this project via [Render](https://render.com/) is very similar. You will need to set the environment variables and enable auto deploy from a repository (requires connecting your GitHub account), however instead of the included Procfile you will need the build.sh file instead.
 
 ## Acknowledgements
 
